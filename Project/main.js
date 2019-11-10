@@ -1,28 +1,39 @@
-import SimpleList from "./BinarySearchTree.js";
+import BinarySearchTree from "./BinarySearchTree.js";
 import Product from "./Product.js";
 
-var inventory = new SimpleList(new Array(20));
+var inventory = new BinarySearchTree();
 var tagArticle = document.querySelector('#articleReport');
 
 //Button Add
 document.querySelector('#btnAdd').addEventListener('click', () => {
+    //Get information
     let code = Number(document.querySelector('#code').value);
     let name = document.querySelector('#name').value;
     let cost = Number(document.querySelector('#cost').value);
     let stock = Number(document.querySelector('#stock').value);
     let description = document.querySelector('#description').value;
-    let position = Number(document.querySelector('#position').value);
 
-    if (inventory.add(new Product(code, name, cost, stock, description), position))
-        alert('Producto agregado correctamente');
-    else
-        alert('Posición o código no válido, por favor intente de nuevo');
+    //Add product
+    inventory.add(new Product(code, name, cost, stock, description));
 });
 //Button query
 document.querySelector('#btnQuery').addEventListener('click', () => {
 
 });
-//Button create report
-document.querySelector('#btnCreateReport').addEventListener('click', () => {
+
+//////////////////
+//Buttons report//
+//////////////////
+
+//In Order
+document.querySelector('#btnReportInOrder').addEventListener('click', () => {
+
+});
+//Pre Order
+document.querySelector('#btnReportPreOrder').addEventListener('click', () => {
+
+});
+//Post Order
+document.querySelector('#btnReportPostOrder').addEventListener('click', () => {
 
 });
