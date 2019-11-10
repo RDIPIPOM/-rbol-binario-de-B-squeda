@@ -5,7 +5,8 @@ export default class Product{
         this._cost = cost;
         this._stock = stock;
         this._description = description;
-        this._next = null;
+        this._left = null;
+        this._right = null;
     }
 
     get code(){
@@ -28,12 +29,20 @@ export default class Product{
         return this._description;
     }
 
-    get next(){
-        return this._next;
+    get left(){
+        return this._left;
     }
 
-    set next(next){
-        this._next = next;
+    get right(){
+        return this._right;
+    }
+
+    set left(left){
+        this._left = left;
+    }
+
+    set right(right){
+        this._right = right;
     }
 
     toString(){
