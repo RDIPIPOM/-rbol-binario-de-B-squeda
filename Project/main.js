@@ -27,13 +27,16 @@ document.querySelector('#btnQuery').addEventListener('click', () => {
 
 //In Order
 document.querySelector('#btnReportInOrder').addEventListener('click', () => {
-
+    tagArticle.innerHTML = '';
+    tagArticle.innerHTML = inventory.inOrder();
 });
 //Pre Order
 document.querySelector('#btnReportPreOrder').addEventListener('click', () => {
-
+    tagArticle.innerHTML = '';
+    tagArticle.innerHTML = inventory.preOrder();
 });
 //Post Order
 document.querySelector('#btnReportPostOrder').addEventListener('click', () => {
-
+    tagArticle.innerHTML = '';
+    tagArticle.innerHTML = inventory.postOrder();
 });

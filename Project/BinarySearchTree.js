@@ -1,6 +1,7 @@
 export default class BinarySearchTree {
     constructor() {
         this._root = null;
+        this._allNodes = "";
     }
 
     add(node) {
@@ -28,26 +29,68 @@ export default class BinarySearchTree {
 
     }
 
-    reportInOrder() {
-        //Down to left all
-        if(this._root != null){
-            this._downToLeftRecursive(this._root);
+    inOrder() {
+        this._allNodes = '';
+
+        if (this._root != null) {
+            this._inOrderRecursive(this._root);
+        }
+
+        return this._allNodes;
+    }
+
+    _inOrderRecursive(root) {
+        if (root.left != null) {
+            this._inOrderRecursive(root.left);
+        } else {
+            this._allNodes += root.toString() + '<br>';
+        }
+
+        if (root.right != null) {
+            this._inOrderRecursive(root.right);
         }
     }
 
-    _downToLeftRecursive(root){
+    preOrder() {
+        this._allNodes = '';
 
+        if (this._root != null) {
+            this._preOrderRecursive(this._root);
+        }
+
+        return this._allNodes;
     }
 
-    _InOrderRecursive(root){
+    _preOrderRecursive(root) {
+        this._allNodes += root.toString() + '<br>';
+        if (root.left != null) {
+            this._preOrderRecursive(root.left);
+        }
 
+        if (root.right != null) {
+            this._preOrderRecursive(root.right);
+        }
     }
 
-    reportPreOrder() {
+    postOrder() {
+        this._allNodes = '';
 
+        if (this._root != null) {
+            this._postOrderRecursive(this._root);
+        }
+
+        return this._allNodes;
     }
 
-    reportPostOrder() {
-        
+    _postOrderRecursive(root) {
+        if (root.left != null) {
+            this._inOrderRecursive(root.left);
+        } else {
+            this._allNodes += root.toString() + '<br>';
+        }
+
+        if (root.right != null) {
+            this._inOrderRecursive(root.right);
+        }
     }
 }
