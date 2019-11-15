@@ -18,7 +18,12 @@ document.querySelector('#btnAdd').addEventListener('click', () => {
 });
 //Button query
 document.querySelector('#btnQuery').addEventListener('click', () => {
-
+    let divProductFound = document.querySelector('#productFound');
+    let productFound = inventory.query(Number(document.querySelector('#queryByCode').value));
+    if (productFound != '')
+        divProductFound.innerHTML = productFound;
+    else
+        alert('Producto no encontrado');
 });
 
 //////////////////

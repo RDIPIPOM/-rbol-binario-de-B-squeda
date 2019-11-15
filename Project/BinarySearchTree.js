@@ -26,7 +26,26 @@ export default class BinarySearchTree {
     }
 
     query(code) {
+        let productFound = '';
+        if (this._root != null) {
+            let root = this._root;
+            while (productFound === '') {
+                if (code < root.code) {
+                    if (root.left != null)
+                        root = root.left
+                    else
+                        break;
+                } else if (code > root.code) {
+                    if (root.right != null)
+                        root = root.right;
+                    else
+                        break;
+                } else
+                    productFound = root.toString();
+            }
+        }
 
+        return productFound;
     }
 
     inOrder() {
